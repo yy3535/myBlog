@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "jquery": "^3.2.1",
     "mongoose": "^4.11.6",
     "swig": "^1.4.2"
   }

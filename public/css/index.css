@@ -1,3 +1,312 @@
-body{
-    background: red;
+body {
+    cursor: url(//o0xihan9v.qnssl.com/elsePF3C_zlk_Arrow.cur),auto;
+
+    font-family: calibri, 宋体, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 2em;
+    color: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.1);
+}
+body {
+    display: block;
+    margin: 8px;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+label, button, input, select, textarea {
+    font-family: '微软雅黑',Arial,sans-serif;
+    font-size: 100%;
+}
+.topfixed_bg {
+    background-image: url(data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAADCAYAAADiK9bcAAAABmJL…RYdFNvZnR3YXJlAAB42nNMyU9KVXDLLEotzy/KLlZwDjYDAEQVBqRE4qZiAAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+    background-position: 0 bottom;
+    height: 10px;
+    width: 100%;
+    margin-top: -10px;
+}
+#main {
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    color: #999;
+}
+#main-header {
+    width: 100%;
+    font-size: 12px;
+    min-height: 60px;
+    display: block;
+    padding: 12px 0;
+    text-align: center;
+    background: #1f1f1f;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+#header-wrap {
+    width: 780px;
+    max-width: 95%;
+    min-height: 60px;
+    margin: auto;
+    position: relative;
+}
+#logo {
+    width: 120px;
+    margin: auto;
+    margin-top: 12px;
+    color: #fff;
+    position: relative;
+}
+#logo h1 {
+    font-weight: normal;
+    font-size: 44px;
+    line-height: 2em;
+    display: none;
+}
+#logo h2 {
+    font-weight: normal;
+    color: rgba(255,255,255,0.6);
+    display: none;
+}
+h2 {
+    font-size: 20px;
+}
+a {
+    color: #999;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    font-weight: 700;
+    margin: 24px 0 20px;
+}
+.logo-img {
+    width: 120px;
+    height: 120px;
+    display: block;
+    z-index: 2;
+}
+.logo-img .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+#logo-music {
+    cursor: url(//o0xihan9v.qnssl.com/elsehand2.cur),pointer;
+}
+#logo-music-name {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    display: none;
+    opacity: 0;
+}
+#logo-music-prev {
+    width: 120px;
+    height: 120px;
+    background: transparent url(../images/logo-music-nav.png) left top;
+    position: absolute;
+    left: -80px;
+    top: 0;
+    display: none;
+    opacity: 0;
+}
+#logo-music-play {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background: transparent url(../images/logo-music-play.png) right top;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    opacity: .5;
+}
+#logo-music-pause {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background: transparent url(../images/logo-music-play.png) left top;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    opacity: .5;
+}
+#logo-music-pause:hover{
+    opacity: .8
+}
+#logo-music-next {
+    width: 120px;
+    height: 120px;
+    background: transparent url(../images/logo-music-nav.png) right top;
+    position: absolute;
+    right: -80px;
+    top: 0;
+    display: none;
+    opacity: 0;
+}
+#logo-music .loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.loading {
+    width: 120px;
+    height: 120px;
+    color: #eee;
+    margin: auto;
+    display: none;
+}
+.loading-bar {
+    width: 60px;
+    height: 30px;
+    padding-top: 45px;
+    margin: auto;
+    overflow: hidden;
+}
+.loading-bar div {
+    width: 5px;
+    height: 30px;
+    margin: 5px;
+    margin-top: 25px;
+    background: #eee;
+    float: left;
+}
+#openlist {
+    left: 0;
+    top: 0;
+    display: none;
+}
+#openmenu {
+    right: 0;
+    top: 0;
+    display: none;
+}
+.open {
+    color: #d8d8d8;
+}
+.open {
+    width: 52px;
+    margin: 0;
+    padding: 0;
+    padding-top: 15px;
+    position: absolute;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    font-family: calibri,'宋体',Arial,sans-serif;
+    line-height: 24px;
+    color: #777;
+    text-align: center;
+    cursor: url(//o0xihan9v.qnssl.com/elsehand2.cur),pointer;
+}
+.bar1, .bar2, .bar3, .bar4 {
+    animation: bar 1.5s infinite;
+    -webkit-animation: bar 1.5s infinite;
+    -moz-animation: bar 1.5s infinite;
+    -o-animation: bar 1.5s infinite;
+}
+.bar2 {
+    animation-delay: .3s;
+    -webkit-animation-delay: .3s;
+    -moz-animation-delay: .3s;
+    -o-animation-delay: .3s;
+}
+.bar3 {
+    animation-delay: .6s;
+    -webkit-animation-delay: .6s;
+    -moz-animation-delay: .6s;
+    -o-animation-delay: .6s;
+}
+.bar4 {
+    animation-delay: .9s;
+    -webkit-animation-delay: .9s;
+    -moz-animation-delay: .9s;
+    -o-animation-delay: .9s;
+}
+@keyframes bar
+{
+	0% {
+        margin-top: 25px;
+    }
+    50% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: 25px;
+    }
+}
+audio:not([controls]) {
+    display: none;
+}
+audio {
+    width: 300px;
+    height: 32px;
+}
+.main-narrow {
+    width: 960px;
+}
+#main-nav ul {
+    z-index: 999;
+}
+ol, ul {
+    list-style: none;
+}
+#main-nav ul li {
+    display: inline-block;
+    margin: 0 2px;
+    color: #999;
+    position: relative;
+}
+#main-nav .sub-menu {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    background: rgba(0,0,0,0.7) url(../images/header-bg.png) left top repeat;
+    white-space: nowrap;
+    display: none;
+    opacity: 0;
+}
+#main-nav li.menu-item-has-children {
+    background: url(../images/menu-dot.png) right 27px no-repeat;
+}
+#main-nav .current-menu-item>a, li.current-menu-parent>a, li.current-menu-ancestor>a {
+    color: #df846c!important;
+}
+#main-nav ul li a {
+    padding: 0 8px;
+    display: block;
+}
+#main-nav ul li a {
+    line-height: 48px;
+    color: #d8d8d8;
+}
+a {
+    color: #999;
+    text-decoration: none;
+}
+#main-footer {
+    background-image: url(//o0xihan9v.qnssl.com/wp-content/uploads/2015/07/20150731075252891_feiji.jpg);
+    background-position: -26px 35%;
+    background-size: cover;
+    text-align: center;
+}
+user agent stylesheet
+article, aside, footer, header, hgroup, main, nav, section {
+    display: block;
 }

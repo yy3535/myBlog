@@ -14,8 +14,7 @@ let json=require('../json/test.json');
 //http://localhost:8080/api/test
 router.get('/test',(req,resp,next)=>{
     //输出静态json文件
-    resp.send(json);
-    
+    resp.json(json);
 });
 
 //访问路由 ：http://localhost:8080/api/test2
