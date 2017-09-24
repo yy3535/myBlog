@@ -16,13 +16,18 @@ $(function(){
             this.logoMusicPlay=$("#logo #logo-music-play");
             this.logoMusicPause=$("#logo #logo-music-pause");
             this.logoMusicNext=$("#logo #logo-music-next");
+            this.playList=$("#play-list");
+            this.isShowName=false;
+            this.isPlay=true;
+            this.audio={};
             
 
 
             this.musicList={
                 m1:{
-                    title:"City Of Stars",
-                    url:"http://7vilak.com1.z0.glb.clouddn.com/music/CityofStars.mp3"
+                    title:"某某某某",
+                    url:"public/music/moumoumoumou.mp3"
+                    //url:"http://7vilak.com1.z0.glb.clouddn.com/music/CityofStars.mp3"
                 },
                 m2:{
                     title:"City Of Stars",
@@ -51,24 +56,24 @@ $(function(){
             };
 
 
-            _this.loadData();
+            //_this.loadData();
             _this.music();
             _this.musicBindEvent();
         },
     
-        loadData:function(){
-            $.ajax({
-                url:'/api/test'
-            }).done(function(data){
-                console.log(data);
-            })
-        },
+        // loadData:function(){
+        //     $.ajax({
+        //         url:'/api/test'
+        //     }).done(function(data){
+        //         console.log(data);
+        //     })
+        // },
         /**
          * 显示隐藏歌名动画
          */
         showLoading:function(){
             var _this=this;
-            
+            this.isShowName=true;
             _this.logoMusicName.html(_this.musicList.m1.title);
             setTimeout(function() {
                 _this.logoMusicName.css('display','block');
@@ -83,75 +88,130 @@ $(function(){
                     }, 1000 );
                     setTimeout(function() {
                         _this.logoLoading.css('display','block');
+                        _this.isShowName=false;
                     }, 1000);
                 }, 2000);
             }, 1000);
-            
-            
-            
-    
-            // //显示歌名
-            // setTimeout(function() {
-            //     $("#logo #logo-music-name").animate({
-            //         top: "50px",
-            //         opacity: 1
-            //     }, 3000 ).done(function(){
-            //         //隐藏歌名
-            //         setTimeout(function() {
-            //             $("#logo #logo-music-name").animate({
-            //                 top: "0px",
-            //                 opacity: 0
-            //             }, 3000 );
-            //             logoLoading.css('display','block');
-            //         }, 2000);
-            //     });
-                
-            // }, 1000);
         },
 
         showMusicBtn:function(){
             var _this=this;
-            _this.logoLoading.css('display','none');
-            _this.logoMusicPause.css('display','block');
-            _this.logoMusicPrev.css('display','block');
-            _this.logoMusicNext.css('display','block');
-            _this.logoMusicPrev.animate({
-                left:"-120px",
-                opacity:1
-            },1000);
-            _this.logoMusicNext.animate({
-                right:"-120px",
-                opacity:1
-            },1000);
-
-
+            if(_this.logoMusicPrev.css("left")=="-80px"){
+                _this.logoLoading.css('display','none');
+                if(!_this.isShowName&&_this.isPlay){
+                    _this.logoMusicPause.css('display','block');
+                }
+                _this.logoMusicPrev.css('display','block');
+                _this.logoMusicNext.css('display','block');
+                _this.logoMusicPrev.animate({
+                    left:"-120px",
+                    opacity:1
+                },1000);
+                _this.logoMusicNext.animate({
+                    right:"-120px",
+                    opacity:1
+                },1000);
+            }
         },
 
         hideMusicBtn:function(){
             var _this=this;
-            _this.logoLoading.css('display','block');
-            _this.logoMusicPause.css('display','none');
-            _this.logoMusicPrev.animate({
-                left:"-80px",
-                opacity:0
-            },1000);
-            _this.logoMusicNext.animate({
-                right:"-80px",
-                opacity:0
-            },1000);
-            // _this.logoMusicPrev.css('display','none');
-            // _this.logoMusicNext.css('display','none');
+            if(_this.logoMusicPrev.css("left")=="-120px"){
+                _this.logoLoading.css('display','block');
+                _this.logoMusicPause.css('display','none');
+                _this.logoMusicPrev.animate({
+                    left:"-80px",
+                    opacity:0
+                },1000);
+                _this.logoMusicNext.animate({
+                    right:"-80px",
+                    opacity:0
+                },1000);
+            }
+        },
+
+        showPlayList:function(){
+            var _this=this;
+            _this.playList.css('display','block');
+            if(_this.playList.css("bottom")=="-240px"){
+                _this.playList.animate({
+                    bottom:"0px"
+                },500);
+            }
+        },
+
+        hidePlayList:function(){
+            var _this=this;
+            if(_this.playList.css("bottom")=="0px"){
+                _this.playList.animate({
+                    bottom:"-240px"
+                },500);
+                setTimeout(function() {
+                    _this.playList.css('display','none');
+                }, 500);
+            }
         },
 
         musicBindEvent:function(){
             var _this=this;
+            var hideTimer="";
             _this.showLoading();
+            _this.logoMusic.on('mouseover',function(){
+                if(_this.playList.css('bottom')=="0px"&&hideTimer!=""){
+                    clearTimeout(hideTimer);
+                }
+                
+            });
+            _this.playList.on('mouseover',function(){
+                if(_this.playList.css('bottom')=="0px"&&hideTimer!=""){
+                    clearTimeout(hideTimer);
+                }
+                
+            });
+
             _this.logoMusic.on('mouseenter',function(){
                 _this.showMusicBtn();
+                _this.showPlayList();
             });
             _this.logoMusic.on('mouseleave',function(){
-                _this.hideMusicBtn();
+                hideTimer=setTimeout(function() {
+                    _this.hideMusicBtn();
+                    _this.hidePlayList();
+                }, 800);
             });
+            _this.playList.on('mouseenter',function(){
+                _this.showMusicBtn();
+                _this.showPlayList();
+            });
+            _this.playList.on('mouseleave',function(){
+                hideTimer=setTimeout(function() {
+                    _this.hideMusicBtn();
+                    _this.hidePlayList();
+                }, 800);
+            });
+            _this.logoMusicPause.on('click',function(){
+                if(_this.isPlay){
+                    _this.logoMusicPause.css('display','none');
+                    _this.logoMusicPlay.css('display','block');
+                    $("#play-list .list-control").removeClass("list-pause");
+                    $("#play-list .list-control").addClass("list-play");
+                    _this.isPlay=false;
+                    _this.audio.pause();
+                }
+            });
+            _this.logoMusicPlay.on('click',function(){
+                if(!_this.isPlay){
+                    _this.logoMusicPause.css('display','block');
+                    _this.logoMusicPlay.css('display','none');
+                    $("#play-list .list-control").removeClass("list-play");
+                    $("#play-list .list-control").addClass("list-pause");
+                    _this.isPlay=true;
+                    
+                    _this.audio.play();
+                }
+            });
+            
+            
         },
     
         music:function(){
@@ -159,7 +219,9 @@ $(function(){
             var str="<audio id='jp_audio_0' preload='metadata' src='"+ _this.musicList.m1.url +"'></audio>";
     
             $("#logo_jplayer img").after(str);
-            
+
+            _this.audio=document.getElementById("jp_audio_0");
+            _this.audio.play();
         }
     }
     
