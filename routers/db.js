@@ -11,11 +11,17 @@ let userSchema= new mongoose.Schema({
     username:String,
     password:String
 });
+//创建一张集合，schema,artical表
+let articleSchema= new mongoose.Schema({
+    title:String,
+    content:String
+});
 //用面向对象的思想去操作数据库
 //我们不操作数据库本身，而是先造一个类（构造函数）,通过这个这个类
 //创建的对象来操作数据库集合
 //把这个对象和数据库的集合一一对应 映射
 let User = mongoose.model('User', userSchema);//返回一个类  模型（modal）
+let Article = mongoose.model('Article', articleSchema);
 /*
 class User{
     constructor(username){
@@ -27,6 +33,9 @@ class User{
     }
 }
 */
+
+
+
 
 
 
@@ -46,6 +55,22 @@ router.get('/save',(req,resp,next)=>{
         }
     })
    
+});
+
+
+
+//获取所有的文章列表
+router.get('/getArticleList',(req,resp,next)=>{
+    Article.find({
+        title:'标题'
+    },function(error,articleList){
+        if(!error){
+            resp.json(articleList);
+        }else{
+            resp.send('查询失败');
+        }
+    })
+
 });
 
 //查询  对象写法

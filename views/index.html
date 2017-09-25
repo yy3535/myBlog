@@ -18,6 +18,7 @@
     src="http://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+    <script src="/public/js/juicer-min.js"></script>
     <script src="/public/js/index.js"></script>
 </head>
 <body>
@@ -54,8 +55,8 @@
                 <button id="openmenu" class="open"><span></span><span></span><span></span>menu</button>
                 
                 <nav id="main-nav">
-                    <div class="menu-%e6%88%91%e7%9a%84%e8%8f%9c%e5%8d%95-container"><ul id="menu-%e6%88%91%e7%9a%84%e8%8f%9c%e5%8d%95" class="nav-menu"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-6"><a href="//bigmeow.cn/">首页</a></li>
-                        <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7"><a href="https://bigmeow.cn/about">关於</a></li>
+                    <div class="menu-%e6%88%91%e7%9a%84%e8%8f%9c%e5%8d%95-container"><ul id="menu-%e6%88%91%e7%9a%84%e8%8f%9c%e5%8d%95" class="nav-menu"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-6"><a href="localhost:8080/index">首页</a></li>
+                        <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7"><a href="locallhost:8080/about">关於</a></li>
                         <li id="menu-item-132" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-132"><a href="#">青春代碼</a>
                             <ul class="sub-menu">
                                 <li id="menu-item-78" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-78"><a href="https://bigmeow.cn/./young-code/note">笔記</a></li>
@@ -79,7 +80,7 @@
                         </ul>
                     </div>				
                 </nav>
-                <form role="search" method="get" id="search-form" action="https://bigmeow.cn/">
+                <form role="search" method="get" id="search-form" style="margin-bottom: 12px; opacity: 1;" action="https://bigmeow.cn/">
 					<div>
 						<input type="text" value="Search" name="s" id="s" onblur="if ( this.value == '' ){this.value='Search';}" onfocus = "if ( this.value == 'Search' ){this.value = '';}" />
 					</div>
@@ -111,6 +112,62 @@
         </div>
         <!--main-->
         <footer id="main-footer">
+            <div id="footer-widget">
+                <aside id="footer-comments" class="foo-widget" style="display: block; padding-left: 30px; padding-right: 30px;">
+                    <h3>最新评论</h3>
+                    <ul>
+                        <li>
+                            <span class="recent-comments-avatar"><img alt="" src="https://secure.gravatar.com/avatar/305772106b200d6fde4f9190015cea47?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/305772106b200d6fde4f9190015cea47?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32"></span>
+                            <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html#comment-316" title="三五营销软件在程序猿风格的修真小说发表的评论">能让人来访的乐此不疲，这里就是</a>
+                        </li>
+                    
+                        <li>
+                            <span class="recent-comments-avatar"><img alt="" src="https://secure.gravatar.com/avatar/1c62e327c6c30050647c4fb7898d4314?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/1c62e327c6c30050647c4fb7898d4314?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32"></span>
+                            <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html#comment-315" title="沃八达在程序猿风格的修真小说发表的评论">没事就来转一转，每天多吃两碗饭</a>
+                        </li>
+                    
+                        <li>
+                            <span class="recent-comments-avatar"><img alt="" src="https://secure.gravatar.com/avatar/8007e1cac67e14dd532926ff339f9bcc?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/8007e1cac67e14dd532926ff339f9bcc?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32"></span>
+                            <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html#comment-313" title="三五游戏在程序猿风格的修真小说发表的评论">这里来不够，看不够，玩不够！</a>
+                        </li>
+                    
+                        <li>
+                            <span class="recent-comments-avatar"><img alt="" src="https://secure.gravatar.com/avatar/52d98478972769e4999d4603e5b990c8?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/52d98478972769e4999d4603e5b990c8?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32"></span>
+                            <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html#comment-309" title="笑八达在程序猿风格的修真小说发表的评论">世间博客不少，风景这边独好！</a>
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="footer-tags" class="foo-widget" style="display: block; padding-left: 30px; padding-right: 30px;">
+                    <h3>热门标签</h3>
+                    <ul class="wp-tag-cloud">
+                        <li>
+                            <a href="https://bigmeow.cn/tag/wordpress" class="tag-link-8 tag-link-position-1" title="1 topic" style="font-size: 12px;">wordpress</a>
+                        </li>
+                    </ul>
+                    <ul>
+                    </ul>
+                </aside>
+                <aside id="footer-readwall" class="foo-widget readwall" style="display: block; padding-left: 30px; padding-right: 30px;">
+                    <h3>留言墙</h3>
+                    <ul>
+                        <li>
+                            <a href="http://geekv.net" target="_blank">
+                                <img alt="" src="https://secure.gravatar.com/avatar/9f0230ad89506f5c36c192784b5a0bff?s=46&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/9f0230ad89506f5c36c192784b5a0bff?s=92&amp;d=mm&amp;r=g 2x" class="avatar avatar-46 photo" height="46" width="46">
+                            </a>
+                            <span class="author" style="display:none"></span>
+                            <div class="detail">
+                                <a href="http://geekv.net" target="_blank" class="author"><img alt="" src="https://secure.gravatar.com/avatar/9f0230ad89506f5c36c192784b5a0bff?s=46&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/9f0230ad89506f5c36c192784b5a0bff?s=92&amp;d=mm&amp;r=g 2x" class="avatar avatar-46 photo" height="46" width="46">Running</a>
+                                <span class="count">总评论数：5</span>
+                                <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html#comment-135" class="recent-comment">最后留言：脑洞大开</a>
+                                <span>（这家伙已经"2 years"没有留言了！）</span>
+                                <div class="triangle">
+                                    <div></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
 			<div id="footer-copy">
 				<div class="social">
 					<a rel="nofollow" target="_blank" href="/feed" class="dwtip-top" title="RSS订阅我"><i class="icon-rss"></i></a> 

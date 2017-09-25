@@ -56,24 +56,29 @@ $(function(){
             };
 
 
-            //_this.loadData();
+            _this.loadData();
+            _this.nav();
+            _this.search();
             _this.music();
             _this.musicBindEvent();
         },
     
-        // loadData:function(){
-        //     $.ajax({
-        //         url:'/api/test'
-        //     }).done(function(data){
-        //         console.log(data);
-        //     })
-        // },
+        /**
+         * ajax获取数据
+         */
+        loadData:function(){
+            $.ajax({
+                url:'/db/save'
+            }).done(function(data){
+                console.log(data);
+            })
+        },
         /**
          * 显示隐藏歌名动画
          */
         showLoading:function(){
             var _this=this;
-            this.isShowName=true;
+            this.isShowName=false;
             _this.logoMusicName.html(_this.musicList.m1.title);
             setTimeout(function() {
                 _this.logoMusicName.css('display','block');
@@ -92,6 +97,66 @@ $(function(){
                     }, 1000);
                 }, 2000);
             }, 1000);
+        },
+
+        /**
+         * 导航条
+         */
+        nav:function(){
+            var _this=this;
+            var item132=$("#menu-item-132");
+            var item132Sub=$("#menu-item-132 .sub-menu");
+            var item143=$("#menu-item-143");
+            var item143Sub=$("#menu-item-143 .sub-menu");
+            item132.on('mouseenter',function(){
+                console.log(item132Sub.css("top"));
+                if(item132Sub.css("top")=="36px"||item132Sub.css("left")=="0px"){
+                    item132Sub.css('display','block');
+                    item132Sub.css('left','-16px');
+                    item132Sub.animate({
+                        top:"48px",
+                        opacity:1
+                    },300);
+                }
+            });
+            item132.on('mouseleave',function(){
+                item132Sub.css('left','-16px');
+                if(item132Sub.css("top")=="48px"){
+                    item132Sub.animate({
+                        top:"36px",
+                        opacity:0
+                    },300);
+                }
+            });
+            item143.on('mouseenter',function(){
+                console.log(item143Sub.css("top"));
+                if(item143Sub.css("top")=="36px"||item143Sub.css("left")=="0px"){
+                    item143Sub.css('display','block');
+                    item143Sub.css('left','-8px');
+                    item143Sub.animate({
+                        top:"48px",
+                        opacity:1
+                    },300);
+                }
+            });
+            item143.on('mouseleave',function(){
+                item143Sub.css('left','-8px');
+                if(item143Sub.css("top")=="48px"){
+                    item143Sub.animate({
+                        top:"36px",
+                        opacity:0
+                    },300);
+                }
+            });
+        },
+
+        search:function(){
+            $("#search-form input").on('focus',function(){
+                $(this).css('width','120px');
+            });
+            $("#search-form input").on('blur',function(){
+                $(this).css('width','40px');
+            });
         },
 
         showMusicBtn:function(){
