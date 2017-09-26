@@ -14,7 +14,9 @@ let userSchema= new mongoose.Schema({
 //创建一张集合，schema,artical表
 let articleSchema= new mongoose.Schema({
     title:String,
-    content:String
+    content:String,
+    createDate:Date,
+    delete:Number
 });
 //用面向对象的思想去操作数据库
 //我们不操作数据库本身，而是先造一个类（构造函数）,通过这个这个类
@@ -37,7 +39,23 @@ class User{
 
 
 
-
+//新增一条文档放到集合里
+router.get('/saveArticleList',(req,resp,next)=>{
+    
+        let article=new Article({
+            title:'使用rem等比适配webApp所有屏幕',
+            content:'rem是啥 rem 是相对于 html 元素的 font-size 的一个单位。如果 html 上定义了 font-size: 20px;，则无论在任何地方都是 1rem = 20px 这个大小不会受到父元素的影响...',
+            createDate:new Date().toLocaleString(),
+            delete:0
+        });
+        article.save(function(error,article){
+            if(!error){
+                console.log('保存成功');
+                resp.send('保存成功');
+            }
+        })
+       
+    });
 
 
 
@@ -62,10 +80,13 @@ router.get('/save',(req,resp,next)=>{
 //获取所有的文章列表
 router.get('/getArticleList',(req,resp,next)=>{
     Article.find({
-        title:'标题'
+        delete:0
     },function(error,articleList){
         if(!error){
-            resp.json(articleList);
+            let data={
+                articleList:articleList
+            }
+            resp.json(data);
         }else{
             resp.send('查询失败');
         }

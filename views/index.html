@@ -85,7 +85,6 @@
 						<input type="text" value="Search" name="s" id="s" onblur="if ( this.value == '' ){this.value='Search';}" onfocus = "if ( this.value == 'Search' ){this.value = '';}" />
 					</div>
 				</form>
-				
 				<div class="clear"></div>
             </div>
         </header>
@@ -93,21 +92,32 @@
         <div class="topfixed_bg" ></div>
         <div id="main" class="main-narrow">		
             <div id="content" class="post-index">
-                <article id="post-98" class="post-98 post type-post status-publish format-standard hentry category-tea-words" >
-                    <div class="article-wrap">
-                        <header class="entry-header">
-                            <h1>
-                                <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html" rel="bookmark" class="post-title" title = "程序猿风格的修真小说">
-                                    程序猿风格的修真小说									</a>
-                                <span class="meta-time">08月11日</span>
-                            </h1>
-                        </header>
-                        <div class="entry-content">
-                            <p><a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html" class="post-title" title="程序猿风格的修真小说" rel="bookmark" ><img src="https://o0xihan9v.qnssl.com/wp-content/uploads/2016/01/1437464131114260.jpg" /></a></p><p>
-                终有一天我手中的编译器将成为我灵魂的一部分，这世界在我的眼中将被代码重构，我将看到山川无尽银河无垠都汇成二进制的数字河流，过往英雄都在我脑海眼前一一浮现，...</p>		
-                        </div>
-                    </div>
-                </article>
+                <template id="tpl-content">
+                    {@each articleList as item}
+                    <article id="post-98" class="post-98 post type-post status-publish format-standard hentry category-tea-words" style="opacity: 1; position: absolute; left: 0px; top: 0px; width: 304px;" >
+                            <div class="article-wrap">
+                                <header class="entry-header">
+                                    <h1>
+                                        <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html" rel="bookmark" class="post-title" title = "${item.title}">
+                                            ${item.title}
+                                        </a>
+                                        <span class="meta-time">${item.createDate}</span>
+                                    </h1>
+                                </header>
+                                <div class="entry-content">
+                                    <p>
+                                        <a href="https://bigmeow.cn/tea-words/programmer-style-xiuzhen-of-novel.html" class="post-title" title="${item.title}" rel="bookmark" >
+                                            <img src="https://o0xihan9v.qnssl.com/wp-content/uploads/2016/01/1437464131114260.jpg" />
+                                        </a>
+                                    </p>
+                                    <p>
+                                        ${item.content}
+                                    </p>		
+                                </div>
+                            </div>
+                        </article>
+                        {@/each}
+                </template>
             </div>
         </div>
         <!--main-->
@@ -179,18 +189,23 @@
 			<div class="clear"></div>
         </footer>
         <!--footer-->
-        <div id="play-list" style="bottom: -240px; display: none;">
-            <div class="list-title">
-                <span class="list-control list-pause"></span>
-            </div>
-            <div class="list-wrap">
-                <span rel="0" class="">City Of Stars</span>
-                <span rel="1" class="list-current">夜空中最亮的星</span>
-                <span rel="2">好久不见</span><span rel="3">人来人往</span>
-                <span rel="4">My way</span><span rel="5">明天，你好</span>
-                <span rel="6">米店</span>
-            </div>
+        
+    </div>
+    <div id="bg" style="position: fixed; left: 0px; top: 0px; z-index: -1; overflow: hidden; width: 1903px;">
+        <img src="//o0xihan9v.qnssl.com/wp-content/uploads/2015/08/shuzhi2.jpg" style="position: absolute; opacity: 1; width: 1903px; height: 1189.38px; top: -398.188px; left: 0px;">
+    </div>
+    <div id="play-list" style="bottom: -240px; display: none;">
+        <div class="list-title">
+            <span class="list-control list-pause"></span>
+        </div>
+        <div class="list-wrap">
+            <span rel="0" class="">City Of Stars</span>
+            <span rel="1" class="list-current">夜空中最亮的星</span>
+            <span rel="2">好久不见</span><span rel="3">人来人往</span>
+            <span rel="4">My way</span><span rel="5">明天，你好</span>
+            <span rel="6">米店</span>
         </div>
     </div>
+
 </body>
 </html>

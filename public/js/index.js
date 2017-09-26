@@ -54,8 +54,11 @@ $(function(){
                     url:"http://m2.music.126.net/pO0ElyxnSVWS9eP_mprhyg==/6636652185484709.mp3"
                 }
             };
-
-
+            //窗口大小改变调整背景事件
+            $('#bg').css('height',$(window).height());
+            $(window).on('resize','scroll',function() {
+                $('#bg').css('height',$(window).height());
+            });
             _this.loadData();
             _this.nav();
             _this.search();
@@ -68,9 +71,57 @@ $(function(){
          */
         loadData:function(){
             $.ajax({
-                url:'/db/save'
+                url:'/db/getArticleList'
             }).done(function(data){
                 console.log(data);
+                var tplStr=$('#tpl-content').html();
+                //调用榨汁机  榨模板
+                var str=juicer(tplStr,data);
+                $('#content').html(str);
+                var article=$("#content article");
+                //console.log(article);
+                for(var i=0;i<article.length;i++){
+                    var height=0;
+                    var totalHeight=0;
+                    var currentHeight=0;
+                    if(i%3==0){
+                        height=0;
+                        for(var j=0;j<i;j+=3){
+                            height+=parseInt(document.defaultView.getComputedStyle(article[j]).height)+12;
+                        }
+                        currentHeight=parseInt(document.defaultView.getComputedStyle(article[i]).height)+18;
+                        height+=6;
+                        if(totalHeight<height+currentHeight){
+                            totalHeight=height+currentHeight;
+                        }
+                        article[i].style.transform='translate(6px, '+height+'px)';
+                    }
+                    if(i%3==1){
+                        height=0;
+                        for(var j=1;j<i;j+=3){
+                            height+=parseInt(document.defaultView.getComputedStyle(article[j]).height)+12;
+                        }
+                        currentHeight=parseInt(document.defaultView.getComputedStyle(article[i]).height)+18;
+                        height+=6;
+                        if(totalHeight<height+currentHeight){
+                            totalHeight=height+currentHeight;
+                        }
+                        article[i].style.transform='translate(322px, '+height+'px)';
+                    }
+                    if(i%3==2){
+                        height=0;
+                        for(var j=2;j<i;j+=3){
+                            height+=parseInt(document.defaultView.getComputedStyle(article[j]).height)+12;
+                        }
+                        currentHeight=parseInt(document.defaultView.getComputedStyle(article[i]).height)+18;
+                        height+=6;
+                        if(totalHeight<height+currentHeight){
+                            totalHeight=height+currentHeight;
+                        }
+                        article[i].style.transform='translate(638px, '+height+'px)';
+                    }
+                    $('#content').css('height',totalHeight+'px');
+                }
             })
         },
         /**
@@ -149,7 +200,9 @@ $(function(){
                 }
             });
         },
-
+        /**
+         * 搜索框
+         */
         search:function(){
             $("#search-form input").on('focus',function(){
                 $(this).css('width','120px');
@@ -288,6 +341,7 @@ $(function(){
             _this.audio=document.getElementById("jp_audio_0");
             _this.audio.play();
         }
+
     }
     
     index.init();
