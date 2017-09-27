@@ -52,6 +52,9 @@ label, button, input, select, textarea {
     overflow: hidden;
     color: #999;
 }
+.main-narrow {
+    width: 960px;
+}
 #main-header {
     width: 100%;
     font-size: 12px;
@@ -272,9 +275,7 @@ audio {
     width: 300px;
     height: 32px;
 }
-.main-narrow {
-    width: 960px;
-}
+
 #main-nav ul {
     z-index: 999;
 }
